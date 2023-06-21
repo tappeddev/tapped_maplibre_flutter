@@ -1,0 +1,66 @@
+group 'tapped.maplibre.flutter.tapped_maplibre_flutter'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.7.10'
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.3.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 31
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+    }
+
+    defaultConfig {
+        minSdkVersion 21
+    }
+
+    dependencies {
+        // https://mvnrepository.com/artifact/org.maplibre.gl/android-sdk
+        implementation group: 'org.maplibre.gl', name: 'android-sdk', version: '10.2.0'
+        testImplementation 'org.jetbrains.kotlin:kotlin-test'
+        testImplementation 'org.mockito:mockito-core:5.1.1'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+
+            testLogging {
+                events "passed", "skipped", "failed", "standardOut", "standardError"
+                outputs.upToDateWhen { false }
+                showStandardStreams = true
+            }
+        }
+    }
+}

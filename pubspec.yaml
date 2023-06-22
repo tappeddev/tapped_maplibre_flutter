@@ -4,8 +4,8 @@ version: 0.0.1
 homepage:
 
 environment:
-  sdk: '>=3.0.5 <4.0.0'
-  flutter: ">=3.3.0"
+  sdk: '>=2.16.2 <4.0.0'
+  flutter: ">=2.10.5"
 
 dependencies:
   flutter:
@@ -13,12 +13,10 @@ dependencies:
   flutter_web_plugins:
     sdk: flutter
   plugin_platform_interface: ^2.0.2
-  flutter_plugin_android_lifecycle: 2.0.15
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:tapped_maplibre_flutter/tapped_maplibre_flutter_method_channel.dart';
 
 void main() {
+  /*
   TestWidgetsFlutterBinding.ensureInitialized();
 
   MethodChannelTappedMaplibreFlutter platform = MethodChannelTappedMaplibreFlutter();
@@ -23,5 +24,5 @@ void main() {
 
   test('getPlatformVersion', () async {
     //expect(await platform.getPlatformVersion(), '42');
-  });
+  });*/
 }

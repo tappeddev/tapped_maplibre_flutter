@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="tapped.maplibre.flutter.example">
     <application
         android:label="tapped_maplibre_flutter_example"
         android:name="${applicationName}"

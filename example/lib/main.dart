@@ -32,6 +32,14 @@ class _MyAppState extends State<MyApp> {
               children: [
                 Text("Tested this $_counter times!"),
                 MaterialButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (_) => const _MapScreen()),
+                    );
+                  },
+                  child: Text("open single"),
+                ),
+                MaterialButton(
                   color: Colors.red,
                   child: Text("Start testing"),
                   onPressed: () async {

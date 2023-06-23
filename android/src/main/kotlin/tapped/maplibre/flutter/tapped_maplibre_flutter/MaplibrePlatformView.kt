@@ -2,6 +2,7 @@ package tapped.maplibre.flutter.tapped_maplibre_flutter
 
 import android.content.Context
 import android.util.Log
+import android.widget.FrameLayout
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
@@ -22,6 +23,7 @@ class MaplibrePlatformView(
     private val getLifecycle: () -> Lifecycle
 ) : PlatformView, DefaultLifecycleObserver, OnMapReadyCallback {
 
+    private val viewGroup = FrameLayout(context)
     private val mapView: MapView
 
     init {
@@ -33,13 +35,16 @@ class MaplibrePlatformView(
         mapView = MapView(context, options)
         mapView.getMapAsync(this)
 
+        viewGroup.addView(mapView)
+
         getLifecycle().addObserver(this)
     }
 
-    override fun getView() = mapView
+    override fun getView() = viewGroup
 
     override fun dispose() {
         getLifecycle().removeObserver(this)
+        viewGroup.removeView(mapView)
         mapView.onDestroy()
     }
 
